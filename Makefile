@@ -10,7 +10,7 @@ FLAKE8_FLAGS=
 ISORT_FLAGS=--py 39
 
 # whitelist of directories for flake8
-FLAKE8_DIRS=
+FLAKE8_DIRS=$(PACKAGE_DIR)
 
 
 # setup development environment
