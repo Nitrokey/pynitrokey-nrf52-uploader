@@ -35,4 +35,9 @@
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-"""Package implementing Zigbee OTA DFU functionality."""
+"""Package implementing firmware upload and handling for nRF52 MCUs"""
+
+import pathlib
+
+__version_path__ = pathlib.Path(__file__).parent.resolve().absolute() / "VERSION"
+__version__ = open(__version_path__).read().strip()

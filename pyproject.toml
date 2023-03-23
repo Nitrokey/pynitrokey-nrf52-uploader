@@ -1,0 +1,65 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "pynitrokey-nrf52-uploader"
+authors = [
+  { name = "Nitrokey", email = "pypi@nitrokey.com" },
+]
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "License :: OSI Approved :: Apache Software License",
+  "Intended Audience :: Developers",
+  "Intended Audience :: End Users/Desktop",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+  "ecdsa",
+  "intelhex",
+  "pyusb",
+  "pyserial",
+  "protobuf >=3.17.3, < 4.0.0",
+]
+dynamic = ["version", "description"]
+
+[project.optional-dependencies]
+dev = [
+  "black >=22.1.0,<23",
+  "flake8",
+  "flit >=3.2,<4",
+  "ipython",
+  "isort",
+  "mypy >=1,<1.1",
+]
+
+[project.urls]
+Source = "https://github.com/Nitrokey/pynitrokey-nrf52-uploader"
+
+[tool.isort]
+profile = "black"
+
+[tool.mypy]
+#mypy_path = "stubs"
+show_error_codes = true
+python_version = "3.9"
+
+# enable strict checks for new code
+[[tool.mypy.overrides]]
+module = [
+]
+disallow_untyped_defs = true
+
+# libraries without annotations
+[[tool.mypy.overrides]]
+module = [
+    "ecdsa.*",
+    "intelhex.*",
+    "serial.*",
+]
+ignore_missing_imports = true
